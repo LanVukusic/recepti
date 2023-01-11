@@ -1,7 +1,7 @@
 ---
 import type { Recipe } from "../data/dto";
 import colors from "tailwindcss/colors";
-import { FaClock, FaUtensils, FaPrint, FaArrowLeft } from "react-icons/fa";
+import { Icon } from "astro-icon";
 
 export interface Props {
   recipe: Recipe;
@@ -42,7 +42,10 @@ const primary = col[700];
         <div class="flex">
           <div class="flex mt-8 items-center">
             <div class="rounded-md flex items-center p-3 mx-4 IconBg">
-              <FaClock color={primary} size={"1.2rem"} />
+              <!-- <FaClock client:load color={primary} size={"1.2rem"} /> -->
+              <div class="text-2xl w-5 PrimaryText">
+                <Icon name="mdi:clock" />
+              </div>
             </div>
             <span class="text-gray-800 font-semibold"
               >{recipe.cookingTimeMins} min</span
@@ -50,7 +53,10 @@ const primary = col[700];
           </div>
           <div class="flex mt-8 items-center">
             <div class="rounded-md flex items-center p-3 mx-4 IconBg">
-              <FaUtensils color={primary} size={"1.2rem"} />
+              <!-- <FaUtensils client:load color={primary} size={"1.2rem"} /> -->
+              <div class="text-2xl w-5 PrimaryText">
+                <Icon name="ph:fork-knife-fill" />
+              </div>
             </div>
             <span class="text-gray-800 font-semibold"
               >{recipe.portions} portions</span
@@ -64,8 +70,8 @@ const primary = col[700];
             class="p-3 px-8 mt-8 bg-white font-bold rounded-md shadow-md PrimaryText flex items-center"
             onclick="window.print()"
           >
-            <div class="pr-2">
-              <FaPrint />
+            <div class="text-2xl w-5 PrimaryText mx-2">
+              <Icon name="ic:baseline-print" />
             </div>
             Natisni
           </button>
@@ -121,7 +127,7 @@ const primary = col[700];
     <div class="-ml-16 mt-2 h-1 w-72 PrimaryBg"></div>
   </div>
 
-  <div class="mt-24 p-6 max-w-4xl mx-auto w-full">
+  <div class="p-2 max-w-4xl mx-auto w-full">
     {
       recipe.instructions.map((instruction, i) => (
         <div class="">
@@ -168,7 +174,9 @@ const primary = col[700];
         href="/"
       >
         <div class="pr-2">
-          <FaArrowLeft />
+          <div class="text-4xl w-6 PrimaryText mx-2">
+            <Icon name="mdi:arrow-left-drop-circle" />
+          </div>
         </div>
         Vsi recepti
       </a>

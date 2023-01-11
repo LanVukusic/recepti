@@ -1,16 +1,16 @@
 import type { Recipe } from "../dto";
 
 const recipe: Recipe = {
-  cookingTimeMins: 30,
-  portions: 6,
-  color: "orange",
+  cookingTimeMins: 50,
+  portions: 2,
+  color: "amber",
   id: "popcorn",
   title: "Čokoladne kokice",
   image: "/img/kokice/kokice9.webp",
   authors: ["Tereza", "Nik", "Lan"],
   descriptionParagraphs: [
     "Čokoladne kokice so stvar ki zgleda res super, pa ni tok. Ta recept je živi dokaz, kako dve dobri stvari skupaj ne naredita še boljše stvari.",
-    "S pomočjo Nikove ekspertize glede karamele in večih terezinih poskusih pri delanju kokic je jed nekako uspela, za to pa si seveda zasluži svoj dokumentiran recept.",
+    "S pomočjo Nikove ekspertize glede karamele in večih Terezinih poskusih pri delanju kokic je jed nekako uspela, za to pa si seveda zasluži svoj dokumentiran recept.",
   ],
   ingredients: [
     {
@@ -73,6 +73,9 @@ const recipe: Recipe = {
         {
           text: "Potrežemo toplo ali hladno. Jed se odlično poda s raznimi substancami",
           url: "/img/kokice/kokice10.webp",
+        },
+        {
+          text: "Ideja za serviranje: Postrezite z jointom in brez kozarca vode. - Tereza",
         },
       ],
     },

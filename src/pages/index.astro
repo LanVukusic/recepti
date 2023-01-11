@@ -4,7 +4,6 @@ import Layout from "../layouts/Layout.astro";
 import colors from "tailwindcss/colors";
 
 import { recipes } from "../data/All";
-import { FaPrint } from "react-icons/fa";
 ---
 
 <!DOCTYPE html>
@@ -51,40 +50,45 @@ import { FaPrint } from "react-icons/fa";
               const col = colors[recipe.color] as typeof colors.blue;
 
               return (
-                <div
-                  class="rounded-md shadow-lg flex flex-col "
-                  style={`background-color: ${col[50]}`}
-                >
+                <>
                   <div
-                    class="w-full h-48  rounded-md"
-                    style={`background: url(${recipe.image}); background-size: cover; background-position: center; ackground-repeat: no-repeat;`}
-                  />
+                    class="rounded-md shadow-lg flex flex-col "
+                    style={`background-color: ${col[50]}`}
+                  >
+                    <div
+                      class="w-full h-48  rounded-md"
+                      style={`background: url(${recipe.image}); background-size: cover; background-position: center; ackground-repeat: no-repeat;`}
+                    />
 
-                  <div class="p-4">
-                    <h2 class="text-xl font-bold" style={`color: ${col[600]}`}>
-                      {recipe.title}
-                    </h2>
-                    <div class="">
-                      {recipe.authors.map((author) => (
-                        <span
-                          class=" text-gray-500 text-md"
-                          style={`color: ${recipe.color}`}
-                        >
-                          {author}
-                        </span>
-                      ))}
+                    <div class="p-4">
+                      <h2
+                        class="text-xl font-bold"
+                        style={`color: ${col[600]}`}
+                      >
+                        {recipe.title}
+                      </h2>
+                      <div class="">
+                        {recipe.authors.map((author) => (
+                          <span
+                            class=" text-gray-500 text-md"
+                            style={`color: ${recipe.color}`}
+                          >
+                            {author}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div class="p-2 w-full  flex justify-end">
+                      <a
+                        class="rounded-full p-2 px-8 font-medium text-white m-2 "
+                        style={`background-color: ${col[700]}`}
+                        href={"/" + recipe.id}
+                      >
+                        Pokaži recept
+                      </a>
                     </div>
                   </div>
-                  <div class="p-2 w-full  flex justify-end">
-                    <a
-                      class="rounded-full p-2 px-8 font-medium text-white m-2 "
-                      style={`background-color: ${col[700]}`}
-                      href={"/" + recipe.id}
-                    >
-                      Pokaži recept
-                    </a>
-                  </div>
-                </div>
+                </>
               );
             })
           }
