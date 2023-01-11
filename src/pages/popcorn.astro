@@ -1,0 +1,9 @@
+---
+import recipe from "../data/recipes/cokoladneKokice";
+import Layout from "../layouts/Layout.astro";
+import Recipe from "../components/Recipe.astro";
+---
+
+<Layout title={recipe.title}>
+  <Recipe recipe={recipe} />
+</Layout>

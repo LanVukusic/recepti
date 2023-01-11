@@ -1,0 +1,193 @@
+---
+import type { Recipe } from "../data/dto";
+import colors from "tailwindcss/colors";
+import { FaClock, FaUtensils, FaPrint, FaArrowLeft } from "react-icons/fa";
+
+export interface Props {
+  recipe: Recipe;
+}
+
+const { recipe } = Astro.props;
+const col = colors[recipe.color] as typeof colors.blue;
+
+const bg = col[50];
+const light = col[100];
+const primary = col[700];
+---
+
+<div class="w-full">
+  <div class="w-full h-2 PrimaryBg mb-24"></div>
+
+  <!-- header part -->
+  <div class="w-full flex lightBg p-4 justify-center">
+    {
+      recipe.image && (
+        <div class="max-w-sm -my-14 hidden md:block">
+          <img src={recipe.image} class="rounded-md shadow-lg" />
+        </div>
+      )
+    }
+    <div class="">
+      <!-- title and author -->
+      <div class="p-6 flex justify-center flex-col">
+        <div class="PrimaryText font-medium text-2xl hidden md:block">
+          {recipe.authors.join(" & ")}
+        </div>
+        <h1
+          class="text-6xl font-semibold text-gray-800 md:text-left text-center"
+        >
+          {recipe.title}
+        </h1>
+        <!-- icons for prep time and portions -->
+        <div class="flex">
+          <div class="flex mt-8 items-center">
+            <div class="rounded-md flex items-center p-3 mx-4 IconBg">
+              <FaClock color={primary} size={"1.2rem"} />
+            </div>
+            <span class="text-gray-800 font-semibold"
+              >{recipe.cookingTimeMins} min</span
+            >
+          </div>
+          <div class="flex mt-8 items-center">
+            <div class="rounded-md flex items-center p-3 mx-4 IconBg">
+              <FaUtensils color={primary} size={"1.2rem"} />
+            </div>
+            <span class="text-gray-800 font-semibold"
+              >{recipe.portions} portions</span
+            >
+          </div>
+        </div>
+
+        <!-- call to action button -->
+        <div>
+          <button
+            class="p-3 px-8 mt-8 bg-white font-bold rounded-md shadow-md PrimaryText flex items-center"
+            onclick="window.print()"
+          >
+            <div class="pr-2">
+              <FaPrint />
+            </div>
+            Natisni
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="mt-24 max-w-6xl p-6 mx-auto w-full grid md:grid-cols-2 grid-cols-1 gap-6"
+  >
+    <!-- Ingredients -->
+    <div class="p-6 lightBg">
+      {
+        recipe.ingredients.map((ingredientSection) => (
+          <>
+            <h2 class="text-2xl PrimaryText font-bold  mt-6">
+              {ingredientSection.name}
+            </h2>
+            <ul class="">
+              {ingredientSection.ingredients.map((ingredient) => (
+                <li>
+                  <span class="font-bold">{ingredient.name}</span>
+                  <span class="">{ingredient.quantity}</span>
+                  <span class="">{ingredient.unit}</span>
+                </li>
+              ))}
+            </ul>
+          </>
+        ))
+      }
+    </div>
+
+    <!-- description -->
+    <div>
+      <h2 class="text-4xl PrimaryText font-bold">Opis in navdih</h2>
+      {
+        recipe.descriptionParagraphs.map((par) => {
+          return <p class="text-gray-700 mt-4 text-justify">{par}</p>;
+        })
+      }
+      <div class="w-full flex justify-end">
+        <span class="PrimaryText">{recipe.authors.join(" & ")}</span>
+      </div>
+    </div>
+  </div>
+
+  <!--  instructions -->
+  <div
+    class="w-full my-6 pt-8 p-6 flex flex-col justify-start mx-auto max-w-4xl dotted-bg"
+  >
+    <h2 class="text-5xl PrimaryText font-bold">Priprava</h2>
+    <div class="-ml-16 mt-2 h-1 w-72 PrimaryBg"></div>
+  </div>
+
+  <div class="mt-24 p-6 max-w-4xl mx-auto w-full">
+    {
+      recipe.instructions.map((instruction, i) => (
+        <div class="">
+          <div class="flex justify-start items-center mt-8">
+            <div class="rounded-full prima PrimaryBg text-white font-bold text-2xl p-4 mx-4 w-10 h-10 flex items-center justify-center">
+              {i + 1}
+            </div>
+            <h3 class="font-bold text-4xl text-gray-700 ">
+              {instruction.subtitle}
+            </h3>
+          </div>
+
+          <div class=" pt-8">
+            {instruction.items.map((item, i) => (
+              <div class="pt-4 text-gray-600 text-lg flex items-center md:flex-nowrap flex-wrap">
+                {item.url && (
+                  <div
+                    class="max-w-sm mx-auto md:mx-0"
+                    style={`order:  ${i % 2}; margin-left: ${
+                      (i % 2) * 2
+                    }rem; margin-right: ${((i + 1) % 2) * 2}rem;`}
+                  >
+                    <img src={item.url} class="rounded-md shadow-lg" />
+                  </div>
+                )}
+                {item.text && <p class="text-justify">{item.text}</p>}
+              </div>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- vsi recepti -->
+  <div class="w-full max-w-4xl mx-auto lightBg mt-24 flex">
+    <div class="w-2 PrimaryBg"></div>
+    <div class="p-6">
+      <h2 class="text-4xl PrimaryText">Konec</h2>
+      <p>To je celoten recept. Vse ostale recepte lahko vidiš tukaj.</p>
+
+      <a
+        class="p-3 px-8 mt-8 bg-white font-bold rounded-md shadow-md PrimaryText flex items-center"
+        href="/"
+      >
+        <div class="pr-2">
+          <FaArrowLeft />
+        </div>
+        Vsi recepti
+      </a>
+    </div>
+  </div>
+
+  <style define:vars={{ primary, bg, light }}>
+    .lightBg {
+      background-color: var(--bg);
+    }
+    .PrimaryBg {
+      background-color: var(--primary);
+    }
+    .IconBg {
+      background-color: var(--light);
+    }
+
+    .PrimaryText {
+      color: var(--primary);
+    }
+  </style>
+</div>

@@ -1,0 +1,95 @@
+---
+import type { Recipe } from "../data/dto";
+import Layout from "../layouts/Layout.astro";
+import colors from "tailwindcss/colors";
+
+import { recipes } from "../data/All";
+import { FaPrint } from "react-icons/fa";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recepti</title>
+  </head>
+  <body>
+    <Layout title="Recepti">
+      <div class="min-h-screen">
+        <div
+          class="bg-orange-500 md:h-3/6 h-2/6 w-full absolute md:block hidden"
+          style="clip-path: polygon(0 0, 100% 0, 100% 14%, 60% 5%, 22% 13%, 0 9%);"
+        >
+        </div>
+        <div class="flex items-center px-8 max-w-screen-lg mx-auto">
+          <div class="w-full p-2">
+            <h1 class="md:text-6xl text-3xl font-bold text-slate-700">
+              Zbirka vseh
+            </h1>
+            <h1 class="md:text-8xl text-4xl font-bold text-orange-500">
+              Receptov!
+            </h1>
+
+            <div>
+              <button
+                class="rounded-full bg-gray-500 p-2 px-8 font-medium text-white mt-8"
+                >Glavna stran</button
+              >
+            </div>
+          </div>
+          <div>
+            <img src="cooking.png" alt="" srcset="" />
+          </div>
+        </div>
+        <div
+          class="w-full p-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-screen-lg mx-auto"
+        >
+          {
+            recipes.map((recipe: Recipe) => {
+              const col = colors[recipe.color] as typeof colors.blue;
+
+              return (
+                <div
+                  class="rounded-md shadow-lg flex flex-col "
+                  style={`background-color: ${col[50]}`}
+                >
+                  <div
+                    class="w-full h-48  rounded-md"
+                    style={`background: url(${recipe.image}); background-size: cover; background-position: center; ackground-repeat: no-repeat;`}
+                  />
+
+                  <div class="p-4">
+                    <h2 class="text-xl font-bold" style={`color: ${col[600]}`}>
+                      {recipe.title}
+                    </h2>
+                    <div class="">
+                      {recipe.authors.map((author) => (
+                        <span
+                          class=" text-gray-500 text-md"
+                          style={`color: ${recipe.color}`}
+                        >
+                          {author}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div class="p-2 w-full  flex justify-end">
+                    <a
+                      class="rounded-full p-2 px-8 font-medium text-white m-2 "
+                      style={`background-color: ${col[700]}`}
+                      href={"/" + recipe.id}
+                    >
+                      Pokaži recept
+                    </a>
+                  </div>
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+    </Layout>
+  </body>
+</html>
