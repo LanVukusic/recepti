@@ -11,12 +11,13 @@ export type TextOrImage = {
   text?: string;
 };
 
-export interface Instruction {
+export interface Content {
   subtitle: string;
   items: TextOrImage[];
 }
 
 export interface Recipe {
+  comments?: Content[];
   portions: number;
   cookingTimeMins: number;
   color: keyof typeof colors;
@@ -29,5 +30,5 @@ export interface Recipe {
     name: string;
     ingredients: Ingredient[];
   }[];
-  instructions: Instruction[];
+  instructions: Content[];
 }

@@ -3,7 +3,7 @@ import type { Recipe } from "../dto";
 const recipe: Recipe = {
   cookingTimeMins: 4,
   portions: 2,
-  color: "green",
+  color: "teal",
   id: "munchie",
   title: "Titov muncihe",
   image: "/img/munchie/main.jpg",
