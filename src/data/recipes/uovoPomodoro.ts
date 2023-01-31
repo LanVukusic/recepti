@@ -4,12 +4,12 @@ const recipe: Recipe = {
   cookingTimeMins: 15,
   portions: 2,
   color: "gray",
-  id: "replikacija",
+  id: "uovoPomodoro",
   title: "Uovo kon pomodoro",
   image: "/img/replikacija/tit20.jpg",
   authors: ["Tit Primožič"],
   descriptionParagraphs: [
-    "V stilu bližnjega vzhoda se je  nadaljevala nasa vecerna potreba po hrani. Kaj je v hladilniku tik pred rokom in kaj mi ostaja so misli ki so omejevali končni cilj s ta še zdaleč ni razočaral.",
+    "V stilu bližnjega vzhoda se je  nadaljevala nasa vecerna potreba po hrani. Kaj je v hladilniku tik pred rokom in kaj mi ostaja so misli, ki so omejevali končni cilj s ta še zdaleč ni razočaral.",
     "Gre za jajca narejena v paradižnikovi omaki z taistim pridihom kmečkosti - ocvirki.",
   ],
   ingredients: [
@@ -23,7 +23,7 @@ const recipe: Recipe = {
         { name: "Jajca", quantity: 2, unit: "" },
         { name: "Sir (s chillijem)", quantity: 2, unit: "rezini" },
         { name: "Pikantni mix", quantity: 1, unit: "žlica" },
-        { name: "Zaseka", quantity: 1, unit: "žlica" },
+        { name: "Ocvirki", quantity: 1, unit: "žlica" },
         { name: "Peteršilj", quantity: 2, unit: "ščepca" },
       ],
     },
@@ -34,7 +34,7 @@ const recipe: Recipe = {
       items: [
         {
           url: "/img/replikacija/tit15.jpg",
-          text: "Pripravimo sestavine",
+          text: "Pripravimo sestavine.",
         },
         {
           url: "/img/replikacija/tit21.jpg",

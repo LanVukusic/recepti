@@ -9,8 +9,8 @@ const recipe: Recipe = {
   image: "/img/munchie/main.jpg",
   authors: ["Tit Primožič"],
   descriptionParagraphs: [
-    "Gre za navdih iz bližnjega vzhoda s priokusom reklam o grčiji ki sem jih prejemal zadnje dni na socialnih omrežjih, narejenoizpod rok ironičnega lika zahodnjaka ( npr. Amerikanca) ki isce svojekorenine v vietnamske vojni, kulturi. ",
-    "Za “statement” da gre za slovenski recept pa je situacija postavkjena na rezini kmečkega temnega hleba.",
+    "Gre za navdih iz bližnjega vzhoda s priokusom reklam o grčiji ki sem jih prejemal zadnje dni na socialnih omrežjih, narejeno izpod rok ironičnega lika zahodnjaka ( npr. Amerikanca) ki isce svoje korenine v vietnamski vojni, kulturi. ",
+    "Za “statement” da gre za slovenski recept pa je situacija postavljena na rezini kmečkega temnega hleba.",
   ],
   ingredients: [
     {
@@ -42,7 +42,7 @@ const recipe: Recipe = {
         },
         {
           url: "/img/munchie/3.jpg",
-          text: "Čez humus nanesemo omako. Nanesemo jo v enakomernih štrajhah v škrt hrvaški šahonici.",
+          text: "Čez humus nanesemo omako. Nanesemo jo v enakomernih štrajhah v škrt hrvaški šahonici. (v obliki karo vzorca)",
         },
         {
           url: "/img/munchie/4.jpg",

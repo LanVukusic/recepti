@@ -4,6 +4,6 @@ import chili from "./recipes/Chili";
 import kokice from "./recipes/cokoladneKokice";
 import kuhancek from "./recipes/kuhancek";
 import munchie from "./recipes/munchie";
-import replikacija from "./recipes/replikacija";
+import uovoPomodoro from "./recipes/uovoPomodoro";
 
-export const recipes: Recipe[] = [kokice, kuhancek, munchie, replikacija];
+export const recipes: Recipe[] = [kokice, kuhancek, munchie, uovoPomodoro];
